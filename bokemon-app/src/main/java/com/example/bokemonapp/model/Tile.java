@@ -13,17 +13,17 @@ public class Tile {
 
     private String name;
     private String sprite;
-    private boolean isOpen;
-    private boolean hasMonsters;
+    private boolean open;
+    private boolean monsters;
 
     public Tile() {}
 
-    public Tile(int id, String name, String sprite, boolean isOpen, boolean hasMonsters) {
+    public Tile(int id, String name, String sprite, boolean open, boolean monsters) {
         this.id = id;
         this.name = name;
         this.sprite = sprite;
-        this.isOpen = isOpen;
-        this.hasMonsters = hasMonsters;
+        this.open = open;
+        this.monsters = monsters;
     }
 
     public int getId() {
@@ -39,15 +39,11 @@ public class Tile {
     }
 
     public boolean isOpen() {
-        return isOpen;
+        return open;
     }
 
-    public boolean isHasMonsters() {
-        return hasMonsters;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public boolean isMonsters() {
+        return monsters;
     }
 
     public void setName(String name) {
@@ -59,10 +55,10 @@ public class Tile {
     }
 
     public void setOpen(boolean open) {
-        isOpen = open;
+        this.open = open;
     }
 
-    public void setHasMonsters(boolean hasMonsters) {
-        this.hasMonsters = hasMonsters;
+    public void setMonsters(boolean monsters) {
+        this.monsters = monsters;
     }
 }
