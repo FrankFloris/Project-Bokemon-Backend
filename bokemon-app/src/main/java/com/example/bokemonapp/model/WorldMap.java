@@ -1,9 +1,6 @@
 package com.example.bokemonapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class WorldMap {
@@ -12,14 +9,22 @@ public class WorldMap {
     private int id;
 
     private String name;
-    private int[][] tiles;
+    private int width;
+    private int height;
+
+    @Column
+    @Lob
+    private String tiles;
+
     private int emptyTile;
 
     public WorldMap() {}
 
-    public WorldMap(int id, String name, int[][] tiles, int emptyTile) {
+    public WorldMap(int id, String name, int width, int height, String tiles, int emptyTile) {
         this.id = id;
         this.name = name;
+        this.width = width;
+        this.height = height;
         this.tiles = tiles;
         this.emptyTile = emptyTile;
     }
@@ -32,7 +37,15 @@ public class WorldMap {
         return name;
     }
 
-    public int[][] getTiles() {
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public String getTiles() {
         return tiles;
     }
 
@@ -44,11 +57,19 @@ public class WorldMap {
         this.id = id;
     }
 
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setTiles(int[][] tiles) {
+    public void setTiles(String tiles) {
         this.tiles = tiles;
     }
 
