@@ -27,12 +27,14 @@ public class LoginController {
 //    public int updateLogin(@PathVariable int id, @RequestBody Login login){
 //        return loginService.save(login).getId();
 //    }
-    @ResponseBody
-    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public boolean authenticate(@RequestBody Signup signup) {
-        List<Signup> list = (List<Signup>) loginService.findByUsernameAndPassword(signup.getUsername(), signup.getPassword());
-        return !list.isEmpty();
-    }
+
+
+//    @ResponseBody
+//    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+//    public boolean authenticate(@RequestBody Signup signup) {
+//        List<Signup> list = (List<Signup>) loginService.findByUsernameAndPassword(signup.getUsername(), signup.getPassword());
+//        return !list.isEmpty();
+//    }
 
 
     @ResponseBody

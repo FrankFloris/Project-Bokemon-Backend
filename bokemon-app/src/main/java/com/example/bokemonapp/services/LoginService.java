@@ -7,6 +7,6 @@ import com.example.bokemonapp.model.*;
 
 @Repository
 public interface LoginService extends CrudRepository<Signup, Integer> {
-    Iterable<Signup>findByUsernameAndPassword(String username, String password);
+//    Iterable<Signup>findByUsernameAndPassword(String username, String password);
 
 }
