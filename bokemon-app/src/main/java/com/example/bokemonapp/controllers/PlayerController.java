@@ -1,6 +1,6 @@
 package com.example.bokemonapp.controllers;
 
-import com.example.bokemonapp.model.Player;
+import com.example.bokemonapp.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -33,4 +33,10 @@ public class PlayerController {
         return (List<Player>)playerService.findAll();
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+    public boolean authenticate(@RequestBody Player player) {
+        List<Player> list = (List<Player>) playerService.findByUsernameAndPassword(player.getUsername(), player.getPassword());
+        return !list.isEmpty();
+    }
 }
