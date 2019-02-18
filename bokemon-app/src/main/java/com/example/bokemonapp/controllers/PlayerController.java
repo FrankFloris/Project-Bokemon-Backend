@@ -28,6 +28,10 @@ public class PlayerController {
     public Optional<Player> playerById(@PathVariable int id) { return playerService.findById(id); }
 
     @ResponseBody
+    @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
+    public List<Player> playerByUsername(@PathVariable String username) { return (List<Player>)playerService.findByUsername(username); }
+
+    @ResponseBody
     @RequestMapping(value = "/player", method = RequestMethod.GET)
     public List<Player> findAll() {
         return (List<Player>)playerService.findAll();
