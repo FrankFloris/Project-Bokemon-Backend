@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface PlayerService extends CrudRepository<Player, Integer> {
     Iterable<Player>findByUsername(String username);
     Iterable<Player>findByUsernameAndPassword(String username, String password);
-    Iterable<Player>findByBokemons(String bokemons);
+//    Iterable<Player>findByBokemons(String bokemons);
 }

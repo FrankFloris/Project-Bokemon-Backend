@@ -17,7 +17,7 @@ public class BokemonController {
 
     @ResponseBody
     @RequestMapping(value = "/bokemon", method = RequestMethod.POST)
-    public int create(@RequestBody Bokemon bokemon) { return bokemonService.save(bokemon).getId(); }
+    public Bokemon create(@RequestBody Bokemon bokemon) { return bokemonService.save(bokemon); }
 
     @ResponseBody
     @RequestMapping(value = "/bokemon/{id}", method = RequestMethod.PUT)
