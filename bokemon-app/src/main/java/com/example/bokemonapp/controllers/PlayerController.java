@@ -41,6 +41,6 @@ public class PlayerController {
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public boolean authenticate(@RequestBody Player player) {
         List<Player> list = (List<Player>) playerService.findByUsernameAndPassword(player.getUsername(), player.getPassword());
-        return !list.isEmpty();
-    }
+        return !list.isEmpty(); }
+
 }

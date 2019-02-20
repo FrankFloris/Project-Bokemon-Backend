@@ -1,9 +1,6 @@
 package com.example.bokemonapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Bokemon {
@@ -11,7 +8,6 @@ public class Bokemon {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
     private String name;
     private int hp;
     private int atk;
@@ -20,10 +16,15 @@ public class Bokemon {
     private int lvl;
     private int exp;
 
+    @OneToOne
+    private MonsterTemplate template;
+
+
     public Bokemon(){}
 
-    public Bokemon(int id, String name, int hp, int atk, int def, int spd, int lvl, int exp){
+    public Bokemon(int id, MonsterTemplate template, String name, int hp, int atk, int def, int spd, int lvl, int exp){
         this.id = id;
+        this.template = template;
         this.name = name;
         this.hp = hp;
         this.atk = atk;
@@ -33,11 +34,15 @@ public class Bokemon {
         this.exp = exp;
     }
 
-//    public void attack(){(100+this.atk-target.def)}
+
 
     public int getId() { return id;    }
 
     public void setId(int id) { this.id = id;    }
+
+    public MonsterTemplate getTemplate() { return template; }
+
+    public void setTemplate(MonsterTemplate template) { this.template = template; }
 
     public String getName() { return name;    }
 

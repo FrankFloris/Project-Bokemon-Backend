@@ -1,9 +1,8 @@
 package com.example.bokemonapp.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Set;
+import java.util.HashSet;
 
 @Entity
 public class MonsterTemplate {
@@ -25,6 +24,13 @@ public class MonsterTemplate {
 
     private int bokemonType;
 
+//    @OneToMany(mappedBy = "template")
+//    private Set<Bokemon> bokemon = new HashSet<>();
+//
+//    public void addBokemon(Bokemon bokemon){
+//        this.bokemon.add(bokemon);
+//    }
+
     public MonsterTemplate(){}
 
     public MonsterTemplate(int id, String name, String sprite, int baseHp, int deltaHP,
@@ -43,6 +49,14 @@ public class MonsterTemplate {
         this.deltaSpd = deltaSpd;
         this.bokemonType = bokemonType;
     }
+
+//    public Set<Bokemon> getBokemon() {
+//        return bokemon;
+//    }
+//
+//    public void setBokemon(Set<Bokemon> bokemon) {
+//        this.bokemon = bokemon;
+//    }
 
     public int getId() {
         return id;

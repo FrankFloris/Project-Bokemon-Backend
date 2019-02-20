@@ -17,10 +17,11 @@ public class Player {
     private String sprite;
     private int x;
     private int y;
+    private String bokemons;
 
     public Player() {}
 
-    public Player(int id, String username, String password, int world, String sprite, int x, int y) {
+    public Player(int id, String username, String password, int world, String sprite, int x, int y, String bokemons) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -28,6 +29,7 @@ public class Player {
         this.sprite = sprite;
         this.x = x;
         this.y = y;
+        this.bokemons = bokemons;
     }
 
     public int getId() {
@@ -85,4 +87,8 @@ public class Player {
     public void setY(int y) {
         this.y = y;
     }
+
+    public String getBokemons() { return bokemons; }
+
+    public void setBokemons(String bokemons) { this.bokemons = bokemons; }
 }
