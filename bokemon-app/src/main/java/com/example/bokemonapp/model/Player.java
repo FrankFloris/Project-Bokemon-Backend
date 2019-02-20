@@ -1,9 +1,8 @@
 package com.example.bokemonapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Player {
@@ -17,11 +16,16 @@ public class Player {
     private String sprite;
     private int x;
     private int y;
-    private String bokemons;
+
+//    @OneToMany
+//    private Set<Bokemon> bokemon = new HashSet<>();
+
+    @OneToOne
+    private Bokemon bokemon;
 
     public Player() {}
 
-    public Player(int id, String username, String password, int world, String sprite, int x, int y, String bokemons) {
+    public Player(int id, String username, String password, int world, String sprite, int x, int y, Bokemon bokemon) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -29,7 +33,7 @@ public class Player {
         this.sprite = sprite;
         this.x = x;
         this.y = y;
-        this.bokemons = bokemons;
+        this.bokemon = bokemon;
     }
 
     public int getId() {
@@ -87,8 +91,12 @@ public class Player {
     public void setY(int y) {
         this.y = y;
     }
+//
+//    public Set<Bokemon> getBokemon() { return bokemon; }
+//
+//    public void setBokemon(Set<Bokemon> bokemon) { this.bokemon = bokemon; }
 
-    public String getBokemons() { return bokemons; }
+    public Bokemon getBokemon() { return bokemon; }
 
-    public void setBokemons(String bokemons) { this.bokemons = bokemons; }
+    public void setBokemon(Bokemon bokemon) { this.bokemon = bokemon; }
 }

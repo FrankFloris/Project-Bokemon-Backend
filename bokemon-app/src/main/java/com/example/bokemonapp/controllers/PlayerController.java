@@ -17,7 +17,9 @@ public class PlayerController {
 
     @ResponseBody
     @RequestMapping(value = "/player", method = RequestMethod.POST)
-    public int create(@RequestBody Player player) { return playerService.save(player).getId(); }
+    public int create(@RequestBody Player player) {
+        return playerService.save(player).getId();
+    }
 
     @ResponseBody
     @RequestMapping(value = "/player/{id}", method = RequestMethod.PUT)
