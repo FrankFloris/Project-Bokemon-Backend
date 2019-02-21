@@ -1,11 +1,13 @@
 package com.example.bokemonapp.controllers;
 
 import com.example.bokemonapp.model.*;
+import org.aspectj.apache.bcel.util.Play;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.example.bokemonapp.services.PlayerService;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +39,18 @@ public class PlayerController {
     @RequestMapping(value = "/player", method = RequestMethod.GET)
     public List<Player> findAll() {
         return (List<Player>)playerService.findAll();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Optional<Player> playerByUsernameAndPassword(@RequestBody LoginForm loginForm) {
+        List<Player> list = (List<Player>) playerService.findByUsernameAndPassword(loginForm.getUsername(), loginForm.getPassword());
+
+        if (list.size() > 0) {
+            return Optional.of(list.get(0));
+        } else {
+            return Optional.empty();
+        }
     }
 
     @ResponseBody

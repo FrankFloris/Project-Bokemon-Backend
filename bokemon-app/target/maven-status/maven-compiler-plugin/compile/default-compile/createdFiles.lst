@@ -6,6 +6,7 @@ com\example\bokemonapp\controllers\WorldController.class
 com\example\bokemonapp\services\WorldService.class
 com\example\bokemonapp\services\WorldMapService.class
 com\example\bokemonapp\services\PlayerService.class
+com\example\bokemonapp\model\LoginForm.class
 com\example\bokemonapp\model\WorldMap.class
 com\example\bokemonapp\controllers\TileController.class
 com\example\bokemonapp\services\BokemonService.class
