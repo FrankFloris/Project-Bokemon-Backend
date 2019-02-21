@@ -22,6 +22,12 @@ public class PlayerController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/player", method = RequestMethod.PATCH)
+    public int update (@RequestBody Player player) {
+        return playerService.save(player).getId();
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/player/{id}", method = RequestMethod.PUT)
     public int updatePlayer(@PathVariable int id, @RequestBody Player player) { return playerService.save(player).getId(); }
 
