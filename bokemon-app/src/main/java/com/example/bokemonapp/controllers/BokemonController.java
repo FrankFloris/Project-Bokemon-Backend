@@ -33,7 +33,11 @@ public class BokemonController {
         return (List<Bokemon>)bokemonService.findAll();
     }
 
-
+    @ResponseBody
+    @RequestMapping(value = "/bokemon", method = RequestMethod.PATCH)
+    public int update (@RequestBody Bokemon bokemon){
+        return bokemonService.save(bokemon).getId();
+    }
 
 
 

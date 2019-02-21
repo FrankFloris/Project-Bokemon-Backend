@@ -9,6 +9,7 @@ public class Bokemon {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
+    private int maxHp;
     private int hp;
     private int atk;
     private int def;
@@ -22,10 +23,11 @@ public class Bokemon {
 
     public Bokemon(){}
 
-    public Bokemon(int id, MonsterTemplate template, String name, int hp, int atk, int def, int spd, int lvl, int exp){
+    public Bokemon(int id, MonsterTemplate template, String name, int maxHp, int hp, int atk, int def, int spd, int lvl, int exp){
         this.id = id;
         this.template = template;
         this.name = name;
+        this.maxHp = maxHp;
         this.hp = hp;
         this.atk = atk;
         this.def = def;
@@ -47,6 +49,10 @@ public class Bokemon {
     public String getName() { return name;    }
 
     public void setName(String name) { this.name = name;    }
+
+    public int getMaxHp() { return maxHp; }
+
+    public void setMaxHp(int maxHp) { this.maxHp = maxHp; }
 
     public int getHp() { return hp;    }
 
