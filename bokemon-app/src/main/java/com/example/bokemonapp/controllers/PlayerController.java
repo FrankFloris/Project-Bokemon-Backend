@@ -20,6 +20,7 @@ public class PlayerController {
     @ResponseBody
     @RequestMapping(value = "/player", method = RequestMethod.POST)
     public int create(@RequestBody Player player) {
+        System.out.println("reached post");
         return playerService.save(player).getId();
     }
 
