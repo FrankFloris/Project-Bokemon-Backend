@@ -22,7 +22,7 @@ public class MonsterTemplateController {
 
     @ResponseBody
     @RequestMapping(value = "/monsterTemplate/{id}", method = RequestMethod.PUT)
-    public int updateMonsterbase(@PathVariable int id, @RequestBody MonsterTemplate monsterTemplate) { return monsterTemplateService.save(monsterTemplate).getId(); }
+    public int updateMonsterbase(@PathVariable int idmonsterTemplate, @RequestBody MonsterTemplate monsterTemplate) { return monsterTemplateService.save(monsterTemplate).getId(); }
 
     @ResponseBody
     @RequestMapping(value = "/monsterTemplate/{id}", method = RequestMethod.GET)

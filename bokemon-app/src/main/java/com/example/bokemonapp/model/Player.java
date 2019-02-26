@@ -3,6 +3,7 @@ package com.example.bokemonapp.model;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 public class Player {
@@ -17,11 +18,24 @@ public class Player {
     private int x;
     private int y;
 
-//    @OneToMany
-//    private Set<Bokemon> bokemon = new HashSet<>();
-
     @OneToOne
     private Bokemon bokemon;
+
+//    @OneToMany(mappedBy = "player", cascade = CasecadeType.ALL)
+//    private Set<Bokemon> bokemons;
+//
+//    public Player(String name, Bokemon... bokemons){
+//        this.username = username;
+//        this.bokemons = Stream.of(bokemons).collect(Collectors.toSet());
+//        this.bokemons.forEach(x -> x.setPlayer(this));
+//    }
+
+//    @OneToMany
+//    private Set<Bokemon> bokemons = new HashSet<>();
+//
+//    public void addBokemon(Bokemon bokemon){
+//        this.bokemons.add(bokemon);
+//    }
 
     public Player() {}
 
@@ -33,6 +47,7 @@ public class Player {
         this.sprite = sprite;
         this.x = x;
         this.y = y;
+
         this.bokemon = bokemon;
     }
 

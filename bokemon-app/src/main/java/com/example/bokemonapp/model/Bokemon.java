@@ -20,6 +20,14 @@ public class Bokemon {
     @OneToOne
     private MonsterTemplate template;
 
+//    @ManyToOne
+//    @JoinColumn
+//    private Player player;
+//
+//    public Bokemon(String name){
+//        this.name = name;
+//    }
+
 
     public Bokemon(){}
 
