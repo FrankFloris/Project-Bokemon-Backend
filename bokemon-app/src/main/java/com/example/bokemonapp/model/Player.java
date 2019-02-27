@@ -1,9 +1,7 @@
 package com.example.bokemonapp.model;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.*;
 
 @Entity
 public class Player {
@@ -18,8 +16,8 @@ public class Player {
     private int x;
     private int y;
 
-    @OneToOne
-    private Bokemon bokemon;
+//    @OneToOne
+//    private Bokemon bokemon;
 
 //    @OneToMany(mappedBy = "player", cascade = CasecadeType.ALL)
 //    private Set<Bokemon> bokemons;
@@ -30,12 +28,14 @@ public class Player {
 //        this.bokemons.forEach(x -> x.setPlayer(this));
 //    }
 
-//    @OneToMany
-//    private Set<Bokemon> bokemons = new HashSet<>();
-//
-//    public void addBokemon(Bokemon bokemon){
-//        this.bokemons.add(bokemon);
-//    }
+    @OneToMany
+//            (mappedBy = "player", cascade = CascadeType.ALL)
+    private List<Bokemon> bokemons = new ArrayList<>();
+
+    public void addBokemon(Bokemon bokemon){
+        bokemons.add(bokemon);
+//        bokemon.setPlayer(this);
+    }
 
     public Player() {}
 
@@ -47,8 +47,7 @@ public class Player {
         this.sprite = sprite;
         this.x = x;
         this.y = y;
-
-        this.bokemon = bokemon;
+        this.addBokemon(bokemon);
     }
 
     public int getId() {
@@ -111,7 +110,13 @@ public class Player {
 //
 //    public void setBokemon(Set<Bokemon> bokemon) { this.bokemon = bokemon; }
 
-    public Bokemon getBokemon() { return bokemon; }
+//    public Bokemon getBokemon() { return bokemon; }
+//
+//    public void setBokemon(Bokemon bokemon) { this.bokemon = bokemon; }
 
-    public void setBokemon(Bokemon bokemon) { this.bokemon = bokemon; }
+
+    public List<Bokemon> getBokemons() {
+        Collections.sort(bokemons);
+        return bokemons; }
 }
+

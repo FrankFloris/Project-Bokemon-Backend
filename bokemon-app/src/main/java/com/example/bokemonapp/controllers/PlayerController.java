@@ -1,6 +1,7 @@
 package com.example.bokemonapp.controllers;
 
 import com.example.bokemonapp.model.*;
+import com.example.bokemonapp.services.BokemonService;
 import org.aspectj.apache.bcel.util.Play;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +17,13 @@ import java.util.Optional;
 public class PlayerController {
 
     @Autowired private PlayerService playerService;
+    @Autowired private BokemonService bokemonService;
 
     @ResponseBody
     @RequestMapping(value = "/player", method = RequestMethod.POST)
     public int create(@RequestBody Player player) {
+        player.getBokemons().get(0).setMainBokemon(true);
+        bokemonService.save(player.getBokemons().get(0));
         return playerService.save(player).getId();
     }
 

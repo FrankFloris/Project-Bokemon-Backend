@@ -3,7 +3,7 @@ package com.example.bokemonapp.model;
 import javax.persistence.*;
 
 @Entity
-public class Bokemon {
+public class Bokemon implements Comparable<Bokemon> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,22 +16,24 @@ public class Bokemon {
     private int spd;
     private int lvl;
     private int exp;
+    private boolean mainBokemon;
 
     @OneToOne
     private MonsterTemplate template;
 
 //    @ManyToOne
-//    @JoinColumn
 //    private Player player;
-//
+
 //    public Bokemon(String name){
 //        this.name = name;
 //    }
 
 
+
+
     public Bokemon(){}
 
-    public Bokemon(int id, MonsterTemplate template, String name, int maxHp, int hp, int atk, int def, int spd, int lvl, int exp){
+    public Bokemon(int id, MonsterTemplate template, String name, int maxHp, int hp, int atk, int def, int spd, int lvl, int exp, boolean mainBokemon){
         this.id = id;
         this.template = template;
         this.name = name;
@@ -42,6 +44,7 @@ public class Bokemon {
         this.spd = spd;
         this.lvl = lvl;
         this.exp = exp;
+        this.mainBokemon = mainBokemon;
     }
 
 
@@ -53,6 +56,10 @@ public class Bokemon {
     public MonsterTemplate getTemplate() { return template; }
 
     public void setTemplate(MonsterTemplate template) { this.template = template; }
+
+//    public Player getPlayer() { return player; }
+//
+//    public void setPlayer(Player player) { this.player = player; }
 
     public String getName() { return name;    }
 
@@ -86,6 +93,20 @@ public class Bokemon {
 
     public void setExp(int exp) { this.exp = exp;    }
 
+    public boolean isMainBokemon() { return mainBokemon; }
+
+    public void setMainBokemon(boolean mainBokemon) { this.mainBokemon = mainBokemon; }
+
+
+
+    @Override
+    public int compareTo(Bokemon o) {
+        if (mainBokemon) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
 }
 
 

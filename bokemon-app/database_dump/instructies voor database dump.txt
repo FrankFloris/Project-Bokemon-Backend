@@ -1,0 +1,4 @@
+In cmd
+cd +++directory van MySQL server bin+++ (bijvoorbeeld: cd C:\Program Files\MySQL\MySQL Server 8.0\bin)
+daarna:
+mysql -u root -p bokemon < +++directory van de dump+++ (bijvoorbeeld: C:\Users\Student\Downloads\bokemon_dump4.sql)
